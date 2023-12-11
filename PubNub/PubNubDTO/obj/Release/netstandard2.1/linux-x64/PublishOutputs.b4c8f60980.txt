@@ -1,0 +1,3 @@
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNubDTO.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNubDTO.deps.json
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNubDTO.pdb

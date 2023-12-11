@@ -1,0 +1,15 @@
+C:\Users\mathe\pubnub\PubNub\Project\bin\Release\net6.0\linux-x64\PubNub.deps.json
+C:\Users\mathe\pubnub\PubNub\Project\bin\Release\net6.0\linux-x64\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\bin\Release\net6.0\linux-x64\PubNub.pdb
+C:\Users\mathe\pubnub\PubNub\Project\bin\Release\net6.0\linux-x64\PubNubDTO.dll
+C:\Users\mathe\pubnub\PubNub\Project\bin\Release\net6.0\linux-x64\PubNubDTO.pdb
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.csproj.AssemblyReference.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.AssemblyInfoInputs.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.AssemblyInfo.cs
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.csproj.CoreCompileInputs.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.csproj.CopyComplete
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\refint\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\PubNub.pdb
+C:\Users\mathe\pubnub\PubNub\Project\obj\Release\net6.0\linux-x64\ref\PubNub.dll

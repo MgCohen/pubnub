@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: 
+  m_DefaultGroup: 82ddd3b9025b3134d9e5352d2f6b92fc
+  m_currentHash:
+    serializedVersion: 2
+    Hash: 8d6c98311319656e7fbf00a8237ac836
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 1
+  m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 1
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 1
+  m_NonRecursiveBuilding: 1
+  m_CCDEnabled: 1
+  m_maxConcurrentWebRequests: 3
+  m_ContiguousBundles: 1
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
+  m_BuildAndReleaseBinFileOption: 1
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: c5d6a6f3f4193dd449814756c852ea29
+  m_RemoteCatalogLoadPath:
+    m_Id: fdb7dcc7bfaafc24381b7b583114acb0
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
+  m_CustomContentStateBuildPath: 
+  m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 1
+  m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
+  m_GroupAssets:
+  - {fileID: 11400000, guid: bcc31e929f579634eb69794f0827f583, type: 2}
+  - {fileID: 11400000, guid: e5198f050c5110e4b9ce6e4801d80f00, type: 2}
+  m_BuildSettings:
+    m_CompileScriptsInVirtualMode: 0
+    m_CleanupStreamingAssetsAfterBuilds: 1
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: 09bb1581c8065264c9215501635145aa
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 5467a8815b5c4814ab50ba6c0bb3551b
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 43f89f3c75402fa44ad01c05a6c0cb3d
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a095dc00c8f1e5d479b72a50d2381d40
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: c5d6a6f3f4193dd449814756c852ea29
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: fdb7dcc7bfaafc24381b7b583114acb0
+        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+    - m_InheritedParent: 
+      m_Id: c9246e9962c23034d8e7987c03041b67
+      m_ProfileName: Dev
+      m_Values:
+      - m_Id: 5467a8815b5c4814ab50ba6c0bb3551b
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 43f89f3c75402fa44ad01c05a6c0cb3d
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a095dc00c8f1e5d479b72a50d2381d40
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: c5d6a6f3f4193dd449814756c852ea29
+        m_Value: CCDBuildData/1969bea4-b86f-4290-900a-87e1da380d87/e437ec37-11ad-450d-af08-646c98d2ca7a/latest
+      - m_Id: fdb7dcc7bfaafc24381b7b583114acb0
+        m_Value: https://b9da1dc8-81d6-498e-819d-11c4f7ef0105.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/e437ec37-11ad-450d-af08-646c98d2ca7a/release_by_badge/latest/entry_by_path/content/?path=
+    - m_InheritedParent: 
+      m_Id: 13aca1b4732ad084e8c00716ab41b988
+      m_ProfileName: Android Dev
+      m_Values:
+      - m_Id: 5467a8815b5c4814ab50ba6c0bb3551b
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 43f89f3c75402fa44ad01c05a6c0cb3d
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: a095dc00c8f1e5d479b72a50d2381d40
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: c5d6a6f3f4193dd449814756c852ea29
+        m_Value: CCDBuildData/1969bea4-b86f-4290-900a-87e1da380d87/009eccb1-0426-4146-8bc5-53c2a01f7f1e/latest
+      - m_Id: fdb7dcc7bfaafc24381b7b583114acb0
+        m_Value: https://b9da1dc8-81d6-498e-819d-11c4f7ef0105.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/009eccb1-0426-4146-8bc5-53c2a01f7f1e/release_by_badge/latest/entry_by_path/content/?path=
+    m_ProfileEntryNames:
+    - m_Id: 5467a8815b5c4814ab50ba6c0bb3551b
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: 43f89f3c75402fa44ad01c05a6c0cb3d
+      m_Name: Local.BuildPath
+      m_InlineUsage: 0
+    - m_Id: a095dc00c8f1e5d479b72a50d2381d40
+      m_Name: Local.LoadPath
+      m_InlineUsage: 0
+    - m_Id: c5d6a6f3f4193dd449814756c852ea29
+      m_Name: Remote.BuildPath
+      m_InlineUsage: 0
+    - m_Id: fdb7dcc7bfaafc24381b7b583114acb0
+      m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - default
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: 477346df56de7d94c87ad93fbd4c0929, type: 2}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 3
+  m_DataBuilders:
+  - {fileID: 11400000, guid: 8d938a22ea2e5e74d9e0275f1b3068d3, type: 2}
+  - {fileID: 11400000, guid: d4a6258aca902f64987a0d69633c353a, type: 2}
+  - {fileID: 11400000, guid: 203f2a4d1047b3c4d896b8eb26e8a274, type: 2}
+  - {fileID: 11400000, guid: 59129d4ff293ee4488a7569457f85e58, type: 2}
+  m_ActiveProfileId: 13aca1b4732ad084e8c00716ab41b988
+  m_HostingServicesManager:
+    m_HostingServiceInfos: []
+    m_Settings: {fileID: 11400000}
+    m_NextInstanceId: 0
+    m_RegisteredServiceTypeRefs: []
+    m_PingTimeoutInMilliseconds: 5000
+  m_CcdManagedData:
+    EnvironmentId: 
+    EnvironmentName: 
+    BucketId: 
+    Badge: 
+    State: 0

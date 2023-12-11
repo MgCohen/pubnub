@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06c8f9992ba6bd4a9836c7d6422323f, type: 3}
+  m_Name: Screen Dictionary
+  m_EditorClassIdentifier: 
+  screens:
+  - asset:
+      m_AssetGUID: 64301b0f05a519b40baf2f56dcedb3ce
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    type:
+      GuidAssignmentFailed: 0
+      GUID: 31ec91eabecadc7499825cbe59df3260
+      _typeNameAndAssembly: TestScreen2, Assembly-CSharp
+      _suppressLogs: 0
+  - asset:
+      m_AssetGUID: ed843ca23ec31c44ea45185aac9054fb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    type:
+      GuidAssignmentFailed: 0
+      GUID: 8e999162de6a68049934236445f6fb46
+      _typeNameAndAssembly: TestScreen, Assembly-CSharp
+      _suppressLogs: 0

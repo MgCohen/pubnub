@@ -1,0 +1,15 @@
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNub.deps.json
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNub.pdb
+C:\Users\mathe\pubnub\PubNub\module-compilation\Unity.Services.CloudCode.Apis.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Unity.Services.CloudCode.Core.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Google.Protobuf.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Grpc.Core.Api.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Grpc.Net.Client.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Grpc.Net.Common.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\JsonSubTypes.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\Newtonsoft.Json.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNubDTO.dll
+C:\Users\mathe\pubnub\PubNub\module-compilation\PubNubDTO.pdb
