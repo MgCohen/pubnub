@@ -7,8 +7,8 @@ using Zenject;
 public abstract class SceneTransition : MonoBehaviour
 {
     [Inject] ISceneServices scenes;
-    public bool TransitionDone { get; private set; }
 
+    public bool TransitionDone { get; private set; }
 
     [Inject]
     private void Register()

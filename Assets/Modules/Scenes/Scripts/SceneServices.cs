@@ -31,6 +31,7 @@ public class SceneServices : ISceneServices
 
     private async Task DoSceneTransition(string transitionScene, string fromScene, string toScene)
     {
+        BeforeSceneTransition?.Invoke();
         var transition = await WaitSceneLoad(transitionScene);
         while(currentTransition == null)
         {
@@ -48,6 +49,7 @@ public class SceneServices : ISceneServices
         await currentTransition.InAnimation();
         await Addressables.UnloadSceneAsync(transition).Task;
         currentTransition = null;
+        AfterSceneTransition?.Invoke();
     }
 
     private async Task UnloadCurrentScene()
