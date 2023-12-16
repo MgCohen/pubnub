@@ -70,6 +70,20 @@ public abstract class Screen<T> : Screen, IScreenT where T : IScreenContext
             throw new System.Exception("Trying to set the wrong context type on screen");
         }
         Context = (T)context;
+        Context.ContextUpdated -= OnContextUpdated;
+        Context.ContextUpdated += OnContextUpdated;
+    }
+
+    protected virtual void OnContextUpdated() { }
+}
+
+public abstract class InjectedScreen<T>: Screen where T: IScreenContext
+{
+    [Inject] protected T Context;
+
+    [Inject]
+    private void Setup()
+    {
         Context.ContextUpdated += OnContextUpdated;
     }
 

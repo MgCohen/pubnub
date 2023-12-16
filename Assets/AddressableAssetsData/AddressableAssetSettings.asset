@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 82ddd3b9025b3134d9e5352d2f6b92fc
   m_currentHash:
     serializedVersion: 2
-    Hash: 8d6c98311319656e7fbf00a8237ac836
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: bcc31e929f579634eb69794f0827f583, type: 2}
   - {fileID: 11400000, guid: e5198f050c5110e4b9ce6e4801d80f00, type: 2}
+  - {fileID: 11400000, guid: d5b542c744369f441b6ee15889d10ced, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -65,9 +66,9 @@ MonoBehaviour:
       - m_Id: a095dc00c8f1e5d479b72a50d2381d40
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: c5d6a6f3f4193dd449814756c852ea29
-        m_Value: ServerData/[BuildTarget]
+        m_Value: CCDBuildData/1969bea4-b86f-4290-900a-87e1da380d87/e437ec37-11ad-450d-af08-646c98d2ca7a/latest
       - m_Id: fdb7dcc7bfaafc24381b7b583114acb0
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: https://b9da1dc8-81d6-498e-819d-11c4f7ef0105.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/e437ec37-11ad-450d-af08-646c98d2ca7a/release_by_badge/latest/entry_by_path/content/?path=
     - m_InheritedParent: 
       m_Id: c9246e9962c23034d8e7987c03041b67
       m_ProfileName: Dev

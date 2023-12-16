@@ -11,19 +11,17 @@ public class StartupService : MonoBehaviour
     [Inject] private ISceneServices scenes;
     [Inject] private IScreenService screens;
     [Inject] private UGS ugs;
-
+    [Inject] private IConfigService configs;
     private StartupContext context = new StartupContext();
 
     private async void Start()
     {
-        var loadingScreen = screens.Open<StartupScreen>(context);
+        screens.Open<StartupScreen>(context);
+        
         await ugs.Initialize(); 
         context.SetProgress(10);
         await assets.InitializeContent();
-        context.SetProgress(20);
-        await Task.Delay(4000);
-        context.SetProgress(100);
-        await Task.Delay(1000);
+        context.SetProgress(30);
         await scenes.LoadScene("Main");
     }
 

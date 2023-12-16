@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Transitions
   m_EditorClassIdentifier: 
   transitions:
-  - fromScene: Bootstrap
-    toScene: Main
-    transitionScene: Fade
-  defaultTransitionScene: Fade
+  - fromScene:
+      SceneName: Bootstrap
+      Scene: {fileID: 102900000, guid: f142653ac5f2b384f8d47676b0659a38, type: 3}
+    toScene:
+      SceneName: Main
+      Scene: {fileID: 102900000, guid: 6eefc24ee0747c3438456df2b9ff9c44, type: 3}
+    transitionScene:
+      SceneName: Fade
+      Scene: {fileID: 102900000, guid: 985fd41b8ee313e43b8c3f7045a3f3f9, type: 3}
+  defaultTransition:
+    SceneName: Fade
+    Scene: {fileID: 102900000, guid: 985fd41b8ee313e43b8c3f7045a3f3f9, type: 3}

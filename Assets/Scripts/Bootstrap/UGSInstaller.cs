@@ -7,6 +7,8 @@ public class UGSInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<UGS>().AsSingle();
+        Container.BindInterfacesAndSelfTo<UGS>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<ConfigService>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<SaveService>().AsSingle().NonLazy();
     }
 }

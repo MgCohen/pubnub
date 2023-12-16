@@ -10,7 +10,7 @@ public class FilteredRaycaster: GraphicRaycaster
 
     public override void Raycast(PointerEventData eventData, List<RaycastResult> resultAppendList)
     {
-        Debug.Log("Raycasting - " + input);
+        input.FilterRaycast(eventData, resultAppendList);
         base.Raycast(eventData, resultAppendList);
     }
 }

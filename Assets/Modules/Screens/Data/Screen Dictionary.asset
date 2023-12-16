@@ -14,22 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screens:
   - asset:
-      m_AssetGUID: 64301b0f05a519b40baf2f56dcedb3ce
+      m_AssetGUID: fa0f8187f0f7add4fa752fe45dfd39a5
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     type:
       GuidAssignmentFailed: 0
-      GUID: 31ec91eabecadc7499825cbe59df3260
-      _typeNameAndAssembly: TestScreen2, Assembly-CSharp
-      _suppressLogs: 0
-  - asset:
-      m_AssetGUID: ed843ca23ec31c44ea45185aac9054fb
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    type:
-      GuidAssignmentFailed: 0
-      GUID: 8e999162de6a68049934236445f6fb46
-      _typeNameAndAssembly: TestScreen, Assembly-CSharp
+      GUID: fd41951210cf9fb4cb7b251182c73a12
+      _typeNameAndAssembly: MainScreen, Assembly-CSharp
       _suppressLogs: 0

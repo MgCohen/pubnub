@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 public static class AssetReferenceExtensions
 {
-    private static Dictionary<AssetReference, AssetCounter> Counters = new Dictionary<AssetReference, AssetCounter>();
+    private static Dictionary<string, AssetCounter> Counters = new Dictionary<string, AssetCounter>();
     public static async Task<T> LoadAsync<T>(this AssetReference asset) where T : Object
     {
         if (GetCounter(asset, out AssetCounter counter))
@@ -45,10 +45,10 @@ public static class AssetReferenceExtensions
 
     private static bool GetCounter(AssetReference asset, out AssetCounter counter)
     {
-        if (!Counters.TryGetValue(asset, out counter))
+        if (!Counters.TryGetValue(asset.RuntimeKey.ToString(), out counter))
         {
             counter = new AssetCounter(asset);
-            Counters[asset] = counter;
+            Counters[asset.RuntimeKey.ToString()] = counter;
             return false;
         }
         return true;
@@ -97,14 +97,9 @@ public static class AssetReferenceExtensions
 
     public static void UnloadAll()
     {
-        foreach(var counterPair in Counters)
+        foreach (var counter in Counters.Values)
         {
-            var counter = counterPair.Value;
-            var asset = counterPair.Key;
-            while (!counter.Release())
-            {
-                asset.ReleaseAsset();
-            }
+            counter.Release();
         }
     }
 
@@ -148,6 +143,7 @@ public class AssetCounter
         UseCount--;
         if (UseCount <= 0)
         {
+            Asset.ReleaseAsset();
             Instance = null;
         }
         return UseCount <= 0;

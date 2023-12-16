@@ -15,7 +15,6 @@ public class ScreenService : IScreenService, IInitializable
 
     public IScreen CurrentScreen { get; private set; }
 
-
     private List<StackedScreen> screenStack = new List<StackedScreen>();
     private Dictionary<Type, IScreen> sceneScreens = new Dictionary<Type, IScreen>();
     private ScreenQueue queue;
@@ -24,6 +23,16 @@ public class ScreenService : IScreenService, IInitializable
     public void Initialize()
     {
         queue = new ScreenQueue(coroutiner);
+        ResetScreenStack();
+        scenes.AfterSceneTransition += ResetScreenStack;
+    }
+
+    public void ResetScreenStack()
+    {
+        Debug.Log("Reseting screen stack");
+        screenStack.Clear();
+        sceneScreens.Clear();
+        CurrentScreen = null;
 
         var screens = GameObject.FindObjectsByType<Screen>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (var screen in screens)
@@ -42,20 +51,6 @@ public class ScreenService : IScreenService, IInitializable
                 }
             }
             sceneScreens.TryAdd(screen.GetType(), screen);
-        }
-
-        scenes.AfterSceneTransition += CleanupScreens;
-    }
-
-    private void CleanupScreens()
-    {
-        Debug.Log("Cleanup");
-        foreach (var stack in screenStack)
-        {
-            if (stack.Screen == null)
-            {
-                Debug.Log(1);
-            }
         }
     }
 
@@ -117,7 +112,6 @@ public class ScreenService : IScreenService, IInitializable
             }
             screen = factory.Create(screenAsset, screenHolder) as T;
             screen.SetLayer(CurrentScreen.Layer);
-            Debug.Log(1);
             screen.gameObject.SetActive(false);
             return true;
         }
@@ -219,7 +213,6 @@ public class ScreenService : IScreenService, IInitializable
         {
             StackedScreen stackedScreen = screenStack[^1];
             var screenObj = stackedScreen.ScreenObject;
-            Debug.Log(4);
             screenObj.gameObject.SetActive(false);
         }
     }
@@ -244,7 +237,6 @@ public class ScreenService : IScreenService, IInitializable
         }
         else
         {
-            Debug.Log(3);
             stacked.ScreenObject.SetActive(false);
         }
     }

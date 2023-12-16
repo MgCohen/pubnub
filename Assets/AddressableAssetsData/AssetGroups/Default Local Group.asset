@@ -17,8 +17,85 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 82ddd3b9025b3134d9e5352d2f6b92fc
   m_SerializeEntries:
-  - m_GUID: 6eefc24ee0747c3438456df2b9ff9c44
-    m_Address: Main
+  - m_GUID: dc2cc93475f76427c86a8262bee36b88
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Quicksand-Bold SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a40174fae4ab4f11bb4139cfc5dfe4e
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Red_64_Dark
+      SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d64dc76e624254135b7471c7fd5644cf
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Red_64_Dark
+      SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f56c17d3ef4224ae18273fadb9c272a3
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Red_64_Light
+      SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 225ced41e766448fe82a43e7528d97ef
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Red_64_Light
+      SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67efa5b8816fc41ca8cf6230e3d58d74
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Transpar_46
+      SDF Atlas.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb1579285119e4060978448a0182b9bb
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-CriticalNum_Transpar_46
+      SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f3703b68435c41aab3bb9d087ca0c59
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/MuseoModerno-ExtraBold.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a7ef750b018c41e78d4f8f786ae57e5
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Quicksand-Bold.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0962d31f1f084fa3ba7147d76f5b6e8
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Quicksand-SemiBold
+      SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e110c919ea5e84fea8cbc2f0556ecfef
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Quicksand-SemiBold.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de103b4fa240e436881894b6f0fc6c42
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Rubik-Medium.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f58c05479cb14f588efcdfcbdab347c
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Rubik-Medium SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9f0ab9a170fa4c3596972aa1db04a9a
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Rubik-SemiBold SDF.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cfc80c7cfc224830ba9513ae06a46e9
+    m_Address: Assets/Plugins/GUI PRO Kit - Simple Casual/Fonts/Rubik-SemiBold.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
