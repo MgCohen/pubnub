@@ -14,5 +14,7 @@ public class ScreenInstaller : MonoInstaller
 
 
         Container.DeclareSignal<ToggleUIElementSignal>().OptionalSubscriber();
+        Container.DeclareSignal<ToggleHeaderSignal>().OptionalSubscriber();
+        Container.DeclareSignal<ScreenChangedSignal>().OptionalSubscriber();
     }
 }

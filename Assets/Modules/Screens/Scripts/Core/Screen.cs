@@ -155,6 +155,8 @@ public interface IScreen
     public void Focus();
     public IEnumerator Close();
     public void Hide();
+
+    public void SetLayer(int layer);
 }
 
 public interface IScreenT : IScreen

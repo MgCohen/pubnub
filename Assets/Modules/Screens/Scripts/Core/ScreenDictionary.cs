@@ -10,11 +10,11 @@ public class ScreenDictionary: ScriptableObject
 {
     [SerializeField] private List<ScreenReference> screens = new List<ScreenReference>();
     
-    public bool TryGetScreen<T>(out AssetReference screenAsset)
+    public bool TryGetScreen(Type screenType, out AssetReference screenAsset)
     {
         foreach(var screen in screens)
         {
-            if (screen.TryMatch<T>())
+            if (screen.TryMatch(screenType))
             {
                 screenAsset = screen.Asset;
                 return true;
@@ -50,6 +50,11 @@ public class ScreenDictionary: ScriptableObject
         public bool TryMatch<T>()
         {
             return type.Type == typeof(T);
+        }
+
+        public bool TryMatch(Type match)
+        {
+            return type.Type == match;
         }
 
         public void SetType(Type type)

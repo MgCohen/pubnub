@@ -510,6 +510,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: News
       objectReference: {fileID: 0}
+    - target: {fileID: 6810952118033029497, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: screen.GUID
+      value: 154b815b1c6deb24cadb8af7686d6140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810952118033029497, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: screen._typeNameAndAssembly
+      value: NewsScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

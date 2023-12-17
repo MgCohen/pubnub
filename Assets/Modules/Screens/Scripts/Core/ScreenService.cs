@@ -12,6 +12,7 @@ public class ScreenService : IScreenService, IInitializable
     [Inject] private ScreenFactory factory;
     [Inject] private ScreenDictionary screenDictionary;
     [Inject] private ISceneServices scenes;
+    [Inject] private SignalBus signals;
 
     public IScreen CurrentScreen { get; private set; }
 
@@ -76,14 +77,19 @@ public class ScreenService : IScreenService, IInitializable
         }
     }
 
-    private StackedScreen GetScreen<T>() where T : Screen
+    private StackedScreen GetScreen<T>() where T: Screen
     {
-        if (TryGetSceneScreen<T>(out T screen))
+        return GetScreen(typeof(T));
+    }
+
+    private StackedScreen GetScreen(Type screenType)
+    {
+        if (TryGetSceneScreen(screenType, out IScreen screen))
         {
             return new StackedScreen(screen, false);
         }
 
-        if (TryGetAssetScreen<T>(out screen))
+        if (TryGetAssetScreen(screenType, out screen))
         {
             return new StackedScreen(screen, true);
         }
@@ -91,28 +97,28 @@ public class ScreenService : IScreenService, IInitializable
         return null;
     }
 
-    private bool TryGetSceneScreen<T>(out T screen) where T : Screen
+    private bool TryGetSceneScreen(Type screenType, out IScreen screen)
     {
-        if (sceneScreens.TryGetValue(typeof(T), out var screenInstance))
+        if (screenType != null && sceneScreens.TryGetValue(screenType, out var screenInstance))
         {
-            screen = screenInstance as T;
+            screen = screenInstance;
             return true;
         }
         screen = null;
         return false;
     }
 
-    private bool TryGetAssetScreen<T>(out T screen) where T : Screen
+    private bool TryGetAssetScreen(Type screenType, out IScreen screen)
     {
-        if (screenDictionary.TryGetScreen<T>(out AssetReference screenAsset))
+        if (screenDictionary.TryGetScreen(screenType, out AssetReference screenAsset))
         {
             if (screenHolder == null)
             {
                 screenHolder = new GameObject("Screen Holder").transform;
             }
-            screen = factory.Create(screenAsset, screenHolder) as T;
+            screen = factory.Create(screenAsset, screenHolder);
             screen.SetLayer(CurrentScreen.Layer);
-            screen.gameObject.SetActive(false);
+            (screen as MonoBehaviour).gameObject.SetActive(false);
             return true;
         }
         screen = null;
@@ -125,6 +131,27 @@ public class ScreenService : IScreenService, IInitializable
     public T Open<T>(bool closeCurrent = false) where T : Screen
     {
         return Open<T>(null, closeCurrent);
+    }
+
+    public IScreen Open(Type screenType, bool closeCurrent = false)
+    {
+        StackedScreen stack = GetScreen(screenType);
+        if (CurrentScreen == stack.Screen)
+        {
+            //do nothing, its the same screen with a diferent context
+            //double check - this probably will be missing a notify
+        }
+        else if (closeCurrent && CurrentScreen != null)
+        {
+            Close(CurrentScreen);
+        }
+        else
+        {
+            HideCurrentScreen();
+        }
+
+        queue.QueueSequence(OpenSequence(stack));
+        return stack.Screen;
     }
 
     public T Open<T>(ScreenContext<T> context, bool closeCurrent = false) where T : Screen
@@ -218,9 +245,11 @@ public class ScreenService : IScreenService, IInitializable
     #region Sequences
     private IEnumerator OpenSequence(StackedScreen stacked)
     {
+        var oldScreen = CurrentScreen;
         AddToStack(stacked);
         stacked.ScreenObject.SetActive(true);
         yield return stacked.Screen.Open();
+        signals.Fire(new ScreenChangedSignal(oldScreen, stacked.Screen));
     }
 
     private IEnumerator CloseSequence(StackedScreen stacked)
@@ -236,7 +265,21 @@ public class ScreenService : IScreenService, IInitializable
         {
             stacked.ScreenObject.SetActive(false);
         }
+
+        signals.Fire(new ScreenChangedSignal(stacked.Screen, CurrentScreen));
     }
 
     #endregion
+}
+
+public class ScreenChangedSignal
+{
+    public ScreenChangedSignal(IScreen from, IScreen to)
+    {
+        From = from;
+        To = to;
+    }
+
+    public IScreen From { get; private set; }
+    public IScreen To { get; private set; }
 }
