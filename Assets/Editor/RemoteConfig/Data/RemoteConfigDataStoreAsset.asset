@@ -12,18 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ea4308e1-9e93-4977-8335-6c5acb7e7b36\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"News\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": [\r\n        {\r\n          \"id\": \"1\",\r\n         
-    \"title\": \"Title 1\",\r\n          \"content\": \"Content 1\"\r\n        },\r\n       
-    {\r\n          \"id\": \"2\",\r\n          \"title\": \"Title 2\",\r\n         
-    \"content\": \"Content 2\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ea4308e1-9e93-4977-8335-6c5acb7e7b36\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"News\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": [\r\n        {\r\n          \"id\": \"1\",\r\n         
-    \"title\": \"Title 1\",\r\n          \"content\": \"Content 1\"\r\n        },\r\n       
-    {\r\n          \"id\": \"2\",\r\n          \"title\": \"Title 2\",\r\n         
-    \"content\": \"Content 2\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n]"
+  _rsKeyList: '[]'
+  _rsLastCachedKeyList: '[]'
   _environments: "[\r\n  {\r\n    \"projectId\": \"b9da1dc8-81d6-498e-819d-11c4f7ef0105\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"446642c4-0eaf-4385-84db-d800e0737271\",\r\n   
     \"isDefault\": true,\r\n    \"createdAt\": \"2023-11-21T21:48:35Z\",\r\n    \"updatedAt\":

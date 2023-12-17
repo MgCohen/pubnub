@@ -723,13 +723,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
       propertyPath: m_Name
-      value: Loading Screen Variant
+      value: Loading Screen
       objectReference: {fileID: 0}
     - target: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5556483736142914660, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5502495588224204283, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
@@ -751,6 +752,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5502495588224204283, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
   m_PrefabInstance: {fileID: 1333580138709456041}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &7149714281479007577 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8194641814089431536, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+  m_PrefabInstance: {fileID: 1333580138709456041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7484002793615040634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8457004673507767507, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+  m_PrefabInstance: {fileID: 1333580138709456041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839393961065053820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5997dafcca4f134ab06d31a81b43444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7839393961065053820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
@@ -768,6 +785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2bc2f40b45c98458ea197140a5b6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  components: []
+  raycaster: {fileID: 7484002793615040634}
+  canvas: {fileID: 7149714281479007577}
+  content: {fileID: 6835653376954001746}
   screenType: 0
   progress: {fileID: 3664662602184451011}
   progressText: {fileID: 7592515790015865337}

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using TypeReferences;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -46,7 +45,7 @@ public class ScreenDictionary: ScriptableObject
         public AssetReference Asset => asset;
         [SerializeField] private AssetReference asset;
         public Type Type => type.Type;
-        [SerializeField, ReadOnly] private TypeReference type;
+        [SerializeField, NaughtyAttributes.ReadOnly] private TypeReference type;
 
         public bool TryMatch<T>()
         {

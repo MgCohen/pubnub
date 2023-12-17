@@ -103,7 +103,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7110142919079066143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 729dd94c1491da547b397c277d39e383, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -404,6 +404,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5556483736142914660, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+      propertyPath: option
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556483736142914660, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+      propertyPath: options.Array.data[0].Option
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556483736142914660, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+      propertyPath: options.Array.data[1].Option
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
       propertyPath: m_Name
       value: News Screen Variant
@@ -423,6 +435,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1564030731662630405}
+    - targetCorrespondingSourceObject: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 367742929596977402}
+    - targetCorrespondingSourceObject: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1846645771998993205}
   m_SourcePrefab: {fileID: 100100000, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
 --- !u!1 &5817046058976570673 stripped
@@ -430,6 +448,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9100309574813280981, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
   m_PrefabInstance: {fileID: 3382352603885504484}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564030731662630405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817046058976570673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f65d4f51a24c274fb210414b058aae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Option: 0
+--- !u!114 &367742929596977402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817046058976570673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c01f08a1b8d9c4caf2d4f67efade1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Option: 0
+  Icon: {fileID: 21300000, guid: 80e790b71d3a4c64e9014d0b84115482, type: 3}
+  Title: NEWS
 --- !u!114 &1846645771998993205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,19 +488,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154b815b1c6deb24cadb8af7686d6140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  components: []
+  raycaster: {fileID: 6606172848229266231}
+  canvas: {fileID: 6866213264220126740}
+  content: {fileID: 7110142919079066143}
   screenType: 0
   newsHolder: {fileID: 1158838769817561310}
   spinner: {fileID: 5731365218059932796}
-  previewPrefab:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  bigviewPrefab:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+--- !u!114 &6606172848229266231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8457004673507767507, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+  m_PrefabInstance: {fileID: 3382352603885504484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817046058976570673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5997dafcca4f134ab06d31a81b43444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!223 &6866213264220126740 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8194641814089431536, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}
+  m_PrefabInstance: {fileID: 3382352603885504484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7110142919079066143 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5502495588224204283, guid: 2f58c7d6f67799b4ab67cdf414e7f6d5, type: 3}

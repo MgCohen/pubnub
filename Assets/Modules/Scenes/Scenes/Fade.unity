@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 632319974}
   - component: {fileID: 632319973}
   - component: {fileID: 632319972}
-  - component: {fileID: 632319971}
   - component: {fileID: 632319970}
+  - component: {fileID: 632319976}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -156,24 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3e220f60455f147985bf68852083c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioListener: {fileID: 0}
   doOutAnimation: 1
   doInAnimation: 1
   blackout: {fileID: 837971814}
   fadeDuration: 1
---- !u!114 &632319971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632319969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _containerSource: 1
 --- !u!114 &632319972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +243,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &632319976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632319969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 1
 --- !u!1 &837971812
 GameObject:
   m_ObjectHideFlags: 0

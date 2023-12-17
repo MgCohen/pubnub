@@ -7,21 +7,21 @@ public class TestScreen2: Screen<TestScreenContext2>
 {
     [SerializeField] private Image image;
 
-    public override IEnumerator Close()
-    {
-        yield return image.DOColor(Color.white, 1f).WaitForCompletion();
-    }
+    //public override IEnumerator OnClose()
+    //{
+    //    yield return image.DOColor(Color.white, 1f).WaitForCompletion();
+    //}
 
-    public override IEnumerator Open()
-    {
-        yield return image.DOColor(Context.color, 1f).WaitForCompletion();
-    }
+    //public override IEnumerator OnOpen()
+    //{
+    //    yield return image.DOColor(Context.color, 1f).WaitForCompletion();
+    //}
 
-    public override void Focus()
-    {
-        Debug.Log("focusing");
-        image.transform.DORotate(new Vector3(0, 0, 180), 0.5f);
-    }
+    //public override void Focus()
+    //{
+    //    Debug.Log("focusing");
+    //    image.transform.DORotate(new Vector3(0, 0, 180), 0.5f);
+    //}
 }
 
 public class TestScreenContext2 : ScreenContext<TestScreen2>

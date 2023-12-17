@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitions:
   - fromScene:
-      SceneName: Bootstrap
-      Scene: {fileID: 102900000, guid: f142653ac5f2b384f8d47676b0659a38, type: 3}
+      SceneName: Loading
+      Scene: {fileID: 102900000, guid: 93412eae70f408141854c81e80cf043b, type: 3}
     toScene:
       SceneName: Main
       Scene: {fileID: 102900000, guid: 6eefc24ee0747c3438456df2b9ff9c44, type: 3}

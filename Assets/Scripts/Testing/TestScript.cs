@@ -13,49 +13,18 @@ using Zenject;
 
 public class TestScript : MonoBehaviour
 {
-    [Inject] private ScreenService screens;
-    [SerializeField] private TestScreen testScreen;
-        
-    private void Update()
+    [Inject] private IScreenService screens;
+
+    [Inject][NaughtyAttributes.Button]
+    private void Test()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log(screens.CurrentScreen);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            screens.Close<TestScreen>();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            screens.Close(testScreen);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            screens.CloseCurrentScreen();
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            screens.Open<TestScreen>();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            screens.Open<TestScreen2>(new TestScreenContext2(Color.red));
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            screens.Open<TestScreen2>(new TestScreenContext2(Color.blue));
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            screens.Close(screens.CurrentScreen);
-        }
+        Debug.Log(screens);
     }
+
+    private void Awake()
+    {
+        Debug.Log(1);
+    }
+
+
 }

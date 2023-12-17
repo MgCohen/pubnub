@@ -26,14 +26,14 @@ public class SceneServices : ISceneServices
     {
         string from = SceneManager.GetActiveScene().name;
         string transitionScene = transitions.GetTransition(from, to);
-        await DoSceneTransition(transitionScene, from, to);
+        await DoSceneTransition(transitionScene, to);
     }
 
-    private async Task DoSceneTransition(string transitionScene, string fromScene, string toScene)
+    private async Task DoSceneTransition(string transitionScene, string toScene)
     {
         BeforeSceneTransition?.Invoke();
         var transition = await WaitSceneLoad(transitionScene);
-        while(currentTransition == null)
+        while (currentTransition == null)
         {
             //wait for the transition code to start and trigger from the scene
             await Task.Yield();

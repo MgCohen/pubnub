@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Zenject;
 
 public class NewsScreen : InjectedScreen<NewsScreenContext>
 {
@@ -9,14 +10,13 @@ public class NewsScreen : InjectedScreen<NewsScreenContext>
     [SerializeField] private Transform newsHolder;
     [SerializeField] private GameObject spinner;
 
-
     private List<NewsPreview> previews = new List<NewsPreview>();
     private NewsPreview previewPrefab;
 
-    public override IEnumerator Open()
+    protected override IEnumerator OnOpen()
     {
         ToggleState();
-        return base.Open();
+        return base.OnOpen();
     }
 
     protected override void OnContextUpdated()
@@ -75,6 +75,6 @@ public class NewsScreenContext : ScreenContext<NewsScreen>
     {
         News = news;
         Loaded = true;
-        NotifyContentUpdate();
+        //NotifyContentUpdate();
     }
 }

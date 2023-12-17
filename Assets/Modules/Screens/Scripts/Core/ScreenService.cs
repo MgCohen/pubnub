@@ -130,7 +130,7 @@ public class ScreenService : IScreenService, IInitializable
     public T Open<T>(ScreenContext<T> context, bool closeCurrent = false) where T : Screen
     {
         StackedScreen stack = GetScreen<T>();
-        if (context != null && stack.Screen is IScreenT screenT)
+        if (context != null && stack?.Screen is IScreenT screenT)
         {
             stack.DefineContext(context);
             screenT.SetContext(context);
@@ -139,6 +139,7 @@ public class ScreenService : IScreenService, IInitializable
         if(CurrentScreen == stack.Screen)
         {
             //do nothing, its the same screen with a diferent context
+            //double check - this probably will be missing a notify
         }
         else if (closeCurrent && CurrentScreen != null)
         {
@@ -197,8 +198,6 @@ public class ScreenService : IScreenService, IInitializable
             var context = stackedScreen.Context;
             var screen = stackedScreen.Screen;
             var screenObj = stackedScreen.ScreenObject;
-
-            screenObj.SetActive(true);
             if (screen is IScreenT tscreen)
             {
                 tscreen.SetContext(context);
@@ -211,9 +210,7 @@ public class ScreenService : IScreenService, IInitializable
     {
         if (CurrentScreen != null)
         {
-            StackedScreen stackedScreen = screenStack[^1];
-            var screenObj = stackedScreen.ScreenObject;
-            screenObj.gameObject.SetActive(false);
+            CurrentScreen.Hide();
         }
     }
 

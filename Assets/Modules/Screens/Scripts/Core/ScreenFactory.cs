@@ -8,10 +8,14 @@ public class ScreenFactory : PrefabFactory<Screen>
     {
         var handler = assetReference.LoadAssetAsync<GameObject>();
         var prefab = handler.WaitForCompletion();
-        var instance = Create(prefab);
+
+        var container = GameContext.CurrentContainer ?? Container;
+        var instance = container.InstantiatePrefabForComponent<Screen>(prefab);
+
         instance.transform.SetParent(screenHolder);
         instance.transform.SetAsFirstSibling(); //for now, to guarantee that it is on top
         assetReference.ReleaseAsset();
         return instance;
     }
+
 }

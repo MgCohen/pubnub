@@ -9,7 +9,10 @@ public class ScreenInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.BindInterfacesAndSelfTo<ScreenDictionary>().FromInstance(screens);
-        Container.Bind<ScreenFactory>().AsSingle();
+        Container.Bind<ScreenFactory>().AsTransient();
         Container.BindInterfacesAndSelfTo<ScreenService>().AsSingle().NonLazy();
+
+
+        Container.DeclareSignal<ToggleUIElementSignal>().OptionalSubscriber();
     }
 }

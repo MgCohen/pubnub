@@ -17,7 +17,6 @@ public class StartupService : MonoBehaviour
     private async void Start()
     {
         screens.Open<StartupScreen>(context);
-        
         await ugs.Initialize(); 
         context.SetProgress(10);
         await assets.InitializeContent();

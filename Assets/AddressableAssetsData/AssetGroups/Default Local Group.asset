@@ -99,6 +99,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 678a501bbee51f54e805e8f001a139ba
+    m_Address: Assets/News Screen Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff19c90270de97d49b43dd7a7920c302
+    m_Address: Base
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c729fa46b6a485942b7f5b9f1d93ec89
+    m_Address: Sequence
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e07537cad5dde6146b5e116fc07e645b, type: 2}
   m_SchemaSet:

@@ -23,3 +23,13 @@ MonoBehaviour:
       GUID: fd41951210cf9fb4cb7b251182c73a12
       _typeNameAndAssembly: MainScreen, Assembly-CSharp
       _suppressLogs: 0
+  - asset:
+      m_AssetGUID: 678a501bbee51f54e805e8f001a139ba
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    type:
+      GuidAssignmentFailed: 0
+      GUID: 154b815b1c6deb24cadb8af7686d6140
+      _typeNameAndAssembly: NewsScreen, Assembly-CSharp
+      _suppressLogs: 0

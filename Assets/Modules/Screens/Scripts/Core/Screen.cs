@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,9 +13,12 @@ public abstract class Screen : MonoBehaviour, IScreen
 {
     [Inject] protected IScreenService screens;
 
-    protected FilteredRaycaster raycaster;
-    protected Canvas canvas;
-    protected RectTransform content;
+    public List<ScreenComponent> Components => components;
+    [SerializeField] private List<ScreenComponent> components = new List<ScreenComponent>();
+
+    [SerializeField, HideInInspector] protected FilteredRaycaster raycaster;
+    [SerializeField, HideInInspector] protected Canvas canvas;
+    [SerializeField, HideInInspector] protected RectTransform content;
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -40,17 +45,67 @@ public abstract class Screen : MonoBehaviour, IScreen
 
     public int Layer => canvas.sortingOrder;
 
-    public virtual IEnumerator Open()
+    [Inject]
+    protected virtual void Setup()
+    {
+        components = GetComponents<ScreenComponent>().ToList();
+        foreach (var component in components)
+        {
+            component.Setup(this);
+        }
+    }
+
+    public IEnumerator Open()
+    {
+        foreach(var component in components)
+        {
+            component.OnOpen(true);
+        }
+        yield return OnOpen();
+    }
+
+    protected virtual IEnumerator OnOpen()
     {
         yield return null;
     }
 
-    public virtual IEnumerator Close()
+    public IEnumerator Close()
+    {
+        foreach (var component in components)
+        {
+            component.OnClose(true);
+        }
+        yield return OnClose();
+    }
+
+    protected virtual IEnumerator OnClose()
     {
         yield return null;
     }
 
-    public virtual void Focus() { }
+    public void Focus() 
+    {
+        gameObject.SetActive(true);
+        foreach(var component in components)
+        {
+            component.OnOpen(false);
+        }
+        OnFocus();
+    }
+
+    protected virtual void OnFocus() { }
+
+    public void Hide()
+    {
+        foreach(var component in components)
+        {
+            component.OnClose(false);
+        }
+        OnHide();
+        gameObject.SetActive(false);
+    }
+
+    protected virtual void OnHide() { }
 
     public void SetLayer(int layer)
     {
@@ -81,9 +136,9 @@ public abstract class InjectedScreen<T>: Screen where T: IScreenContext
 {
     [Inject] protected T Context;
 
-    [Inject]
-    private void Setup()
+    protected override void Setup()
     {
+        base.Setup();
         Context.ContextUpdated += OnContextUpdated;
     }
 
@@ -94,10 +149,12 @@ public interface IScreen
 {
     public ScreenType ScreenType { get; }
     public int Layer { get; }
+    public List<ScreenComponent> Components { get; }
 
     public IEnumerator Open();
     public void Focus();
     public IEnumerator Close();
+    public void Hide();
 }
 
 public interface IScreenT : IScreen
@@ -110,4 +167,24 @@ public enum ScreenType
     Window = 0,
     Popup = 1,
     Tab = 2,
+}
+
+public abstract class ScreenComponent: MonoBehaviour
+{
+    protected IScreen screen;
+
+    public virtual void Setup(IScreen screen)
+    {
+        this.screen = screen;
+    }
+
+    public virtual void OnOpen(bool isNew)
+    {
+
+    }
+
+    public virtual void OnClose(bool isDestroying)
+    {
+
+    }
 }
