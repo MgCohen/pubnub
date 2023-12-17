@@ -25,10 +25,22 @@ MonoBehaviour:
   - m_GUID: fa0f8187f0f7add4fa752fe45dfd39a5
     m_Address: Main Screen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985fd41b8ee313e43b8c3f7045a3f3f9
     m_Address: Fade
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 678a501bbee51f54e805e8f001a139ba
+    m_Address: News Screen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bf898382fd07de41a7f27abed4c2680
+    m_Address: News View
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

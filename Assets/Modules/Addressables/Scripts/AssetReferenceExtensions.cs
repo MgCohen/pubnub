@@ -14,7 +14,6 @@ public static class AssetReferenceExtensions
     {
         if (GetCounter(asset, out AssetCounter counter))
         {
-            counter.Add();
             return counter.Instance as T;
         }
 

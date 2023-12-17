@@ -10,12 +10,11 @@ using Zenject;
 public class SceneServices : ISceneServices
 {
     [Inject] private SceneTransitionList transitions;
+    [Inject] private SignalBus signals;
 
-    public event Action BeforeSceneTransition;
-    public event Action AfterSceneTransition;
-
-    private SceneInstance? currentScene;
+    private SceneReference currentScene;
     private SceneTransition currentTransition;
+
 
     public void RegisterTransition(SceneTransition transition)
     {
@@ -24,32 +23,42 @@ public class SceneServices : ISceneServices
 
     public async Task LoadScene(string to)
     {
-        string from = SceneManager.GetActiveScene().name;
-        string transitionScene = transitions.GetTransition(from, to);
-        await DoSceneTransition(transitionScene, to);
+        SceneReference sceneReference = new SceneReference(to);
+        await LoadScene(sceneReference);
     }
 
-    private async Task DoSceneTransition(string transitionScene, string toScene)
+    public async Task LoadScene(SceneReference to)
     {
-        BeforeSceneTransition?.Invoke();
-        var transition = await WaitSceneLoad(transitionScene);
+        string from = currentScene ?? SceneManager.GetActiveScene().name;
+        var transition = transitions.GetTransition(from, to);
+        await DoSceneTransition(currentScene, transition, to);
+    }
+
+    private async Task DoSceneTransition(SceneReference fromScene, SceneReference transitionScene, SceneReference toScene)
+    {
+        signals.Fire(new SceneTransitionSignal(TransitionState.LoadingOut, fromScene, toScene));
+        await WaitSceneLoad(transitionScene);
         while (currentTransition == null)
         {
             //wait for the transition code to start and trigger from the scene
             await Task.Yield();
         }
 
-        //out anim
+        signals.Fire(new SceneTransitionSignal(TransitionState.AnimatingOut, fromScene, toScene));
         await currentTransition.OutAnimation();
+        signals.Fire(new SceneTransitionSignal(TransitionState.Transition, fromScene, toScene));
         currentTransition.DoLoadingAnimation();
         await UnloadCurrentScene();
-        currentScene = await WaitSceneLoad(toScene, () => currentTransition.TransitionDone);
 
-        //in animation
+        signals.Fire(new SceneTransitionSignal(TransitionState.LoadingIn, fromScene, toScene));
+        await WaitSceneLoad(toScene, () => currentTransition.TransitionDone);
+        currentScene = toScene;
+
+        signals.Fire(new SceneTransitionSignal(TransitionState.AnimatingIn, fromScene, toScene));
         await currentTransition.InAnimation();
-        await Addressables.UnloadSceneAsync(transition).Task;
+        signals.Fire(new SceneTransitionSignal(TransitionState.Complete, fromScene, toScene));
+        await Addressables.UnloadSceneAsync(transitionScene.Instance).Task;
         currentTransition = null;
-        AfterSceneTransition?.Invoke();
     }
 
     private async Task UnloadCurrentScene()
@@ -65,14 +74,14 @@ public class SceneServices : ISceneServices
         }
         else
         {
-            await Addressables.UnloadSceneAsync(currentScene.Value).Task;
+            await Addressables.UnloadSceneAsync(currentScene.Instance).Task;
         }
     }
 
-    private async Task<SceneInstance> WaitSceneLoad(string sceneName, Func<bool> readyPredicate = null)
+    private async Task WaitSceneLoad(SceneReference sceneReference, Func<bool> readyPredicate = null)
     {
         bool needsValidation = readyPredicate != null;
-        var loadingOperation = Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive, needsValidation);
+        var loadingOperation = Addressables.LoadSceneAsync(sceneReference.SceneName, LoadSceneMode.Additive, needsValidation);
         var scene = await loadingOperation.Task;
         if (needsValidation)
         {
@@ -86,6 +95,30 @@ public class SceneServices : ISceneServices
         {
             await Task.Yield();
         }
-        return scene;
+        sceneReference.Instance = scene;
     }
+}
+
+public class SceneTransitionSignal
+{
+    public SceneTransitionSignal(TransitionState state, SceneReference from, SceneReference to)
+    {
+        State = state;
+        From = from;
+        To = to;
+    }
+
+    public TransitionState State { get; }
+    public SceneReference From { get; }
+    public SceneReference To { get; }
+}
+
+public enum TransitionState
+{
+    LoadingOut = 0,
+    AnimatingOut = 1,
+    Transition = 2,
+    LoadingIn = 3,
+    AnimatingIn = 4,
+    Complete = 5,
 }

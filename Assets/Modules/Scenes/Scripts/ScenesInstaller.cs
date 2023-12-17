@@ -8,5 +8,7 @@ public class ScenesInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<SceneTransitionList>().FromInstance(transitions);
         Container.Bind<ISceneServices>().To<SceneServices>().AsSingle();
+
+        Container.DeclareSignal<SceneTransitionSignal>().OptionalSubscriber();
     }
 }

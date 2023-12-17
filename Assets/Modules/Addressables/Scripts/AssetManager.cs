@@ -14,6 +14,7 @@ public class AssetManager
     {
         await InitializeAddressables();
         await CheckContentUpdate();
+        await PreloadAssets();
     }
 
     private async Task InitializeAddressables()
@@ -34,9 +35,31 @@ public class AssetManager
         }
     }
 
-    public async Task<IList<T>> LoadAssets<T>(string label)
+    private async Task PreloadAssets()
     {
-        var handler = Addressables.LoadAssetsAsync<Object>("label", null);
+        Debug.Log("Checking preload for all needed assets");
+        var sizeCheckHandler = Addressables.GetDownloadSizeAsync("Preload");
+        await sizeCheckHandler.Task;
+        if (sizeCheckHandler.Result > 0)
+        {
+            Debug.Log("Size is: " + sizeCheckHandler.Result);
+            var loadHandler = Addressables.LoadResourceLocationsAsync("Preload");
+            await loadHandler.Task;
+            //Debug.Log(loadHandler.Result[0].PrimaryKey);
+            var downloadHandler = Addressables.DownloadDependenciesAsync(new List<string>() { "Preload" }, Addressables.MergeMode.Union);
+            await downloadHandler.Task;
+            Addressables.Release(downloadHandler);
+            Debug.Log("Download completed");
+        }
+        else
+        {
+            Debug.Log("No download needed");
+        }
+    }
+
+    public async Task<IList<T>> LoadAssets<T>(params string[] labels)
+    {
+        var handler = Addressables.LoadAssetsAsync<Object>(labels, null);
         var objects = await handler.Task;
         if (typeof(T).IsAssignableFrom(typeof(MonoBehaviour)))
         {

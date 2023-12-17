@@ -6,26 +6,21 @@ using Zenject;
 
 public class NewsScreen : InjectedScreen<NewsScreenContext>
 {
+    [Inject] private NewsService newsService;
 
     [SerializeField] private Transform newsHolder;
     [SerializeField] private GameObject spinner;
+    [SerializeField] private NewsPreview previewPrefab;
 
     private List<NewsPreview> previews = new List<NewsPreview>();
-    private NewsPreview previewPrefab;
 
     protected override IEnumerator OnOpen()
     {
-        ToggleState();
+        OnContextUpdated();
         return base.OnOpen();
     }
 
     protected override void OnContextUpdated()
-    {
-        base.OnContextUpdated();
-        ToggleState();
-    }
-
-    private void ToggleState()
     {
         if (Context.Loaded)
         {
@@ -62,7 +57,28 @@ public class NewsScreen : InjectedScreen<NewsScreenContext>
 
     private void FillNewsList()
     {
+        foreach (var news in Context.News)
+        {
+            var preview = Instantiate(previewPrefab, newsHolder);
+            preview.Initialize(news);
+            previews.Add(preview);
+            preview.OnClick += NotifyNewsSeen;
+        }
+    }
 
+    private void NotifyNewsSeen(News news)
+    {
+        if (!news.Seen)
+        {
+            newsService.MarkNewsAsSeen(news);
+        }
+
+        if (news.Data.View != null)
+        {
+            var thing = Addressables.InstantiateAsync(news.Data.View, transform);
+            var view = thing.WaitForCompletion().GetComponent<NewsView>();
+            view.Setup(news.Data);
+        }
     }
 }
 
@@ -75,6 +91,6 @@ public class NewsScreenContext : ScreenContext<NewsScreen>
     {
         News = news;
         Loaded = true;
-        //NotifyContentUpdate();
+        NotifyContentUpdate();
     }
 }

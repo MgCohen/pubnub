@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7313922181844903367
 CanvasRenderer:
@@ -133,9 +133,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d5c467dd0a8ea43bf4f9b4c2f9347f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentState:
+    rid: 6576779778106851329
+  States:
+  - rid: 6576779778106851328
+  - rid: 6576779778106851329
   button: {fileID: 4475228913012273598}
   screen:
     GuidAssignmentFailed: 0
     GUID: 
     _typeNameAndAssembly: 
     _suppressLogs: 0
+  icon: {fileID: 3139876046466924192}
+  navBar: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6576779778106851328
+      type: {class: NavigationButton/ButtonState, ns: , asm: Assembly-CSharp}
+      data:
+        component: {fileID: 6810952118033029497}
+        on: 1
+        icon: {fileID: 976843746, guid: f81fbb5364965c04c91be0869aeaa1cf, type: 3}
+        size: 1.1
+    - rid: 6576779778106851329
+      type: {class: NavigationButton/ButtonState, ns: , asm: Assembly-CSharp}
+      data:
+        component: {fileID: 6810952118033029497}
+        on: 0
+        icon: {fileID: -1284419024, guid: f81fbb5364965c04c91be0869aeaa1cf, type: 3}
+        size: 1

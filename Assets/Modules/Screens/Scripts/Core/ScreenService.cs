@@ -11,10 +11,10 @@ public class ScreenService : IScreenService, IInitializable
     [Inject] private Coroutiner coroutiner;
     [Inject] private ScreenFactory factory;
     [Inject] private ScreenDictionary screenDictionary;
-    [Inject] private ISceneServices scenes;
     [Inject] private SignalBus signals;
 
-    public IScreen CurrentScreen { get; private set; }
+    public IScreen CurrentScreen => CurrentStack?.Screen;
+    private StackedScreen CurrentStack;
 
     private List<StackedScreen> screenStack = new List<StackedScreen>();
     private Dictionary<Type, IScreen> sceneScreens = new Dictionary<Type, IScreen>();
@@ -24,16 +24,25 @@ public class ScreenService : IScreenService, IInitializable
     public void Initialize()
     {
         queue = new ScreenQueue(coroutiner);
-        ResetScreenStack();
-        scenes.AfterSceneTransition += ResetScreenStack;
+        FillScreenStack();
+        signals.Subscribe<SceneTransitionSignal>(ResetScreenStack);
     }
 
-    public void ResetScreenStack()
+    private void ResetScreenStack(SceneTransitionSignal signal)
+    {
+        if (signal.State != TransitionState.AnimatingIn)
+        {
+            return;
+        }
+        FillScreenStack();
+    }
+
+    public void FillScreenStack()
     {
         Debug.Log("Reseting screen stack");
         screenStack.Clear();
         sceneScreens.Clear();
-        CurrentScreen = null;
+        CurrentStack = null;
 
         var screens = GameObject.FindObjectsByType<Screen>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (var screen in screens)
@@ -41,7 +50,7 @@ public class ScreenService : IScreenService, IInitializable
             if (screen.isActiveAndEnabled)
             {
                 StackedScreen stack = new StackedScreen(screen, null, false);
-                if (CurrentScreen != null)
+                if (CurrentStack != null)
                 {
                     screen.gameObject.SetActive(false);
                     AddToStack(stack);
@@ -61,7 +70,7 @@ public class ScreenService : IScreenService, IInitializable
         if (stacked != null)
         {
             screenStack.Add(stacked);
-            CurrentScreen = stacked.Screen;
+            CurrentStack = stacked;
         }
     }
 
@@ -72,18 +81,23 @@ public class ScreenService : IScreenService, IInitializable
             screenStack.Remove(stacked);
             if (CurrentScreen == stacked.Screen)
             {
-                CurrentScreen = screenStack.LastOrDefault()?.Screen;
+                CurrentStack = screenStack.LastOrDefault();
             }
         }
     }
 
-    private StackedScreen GetScreen<T>() where T: Screen
+    private StackedScreen GetScreen<T>() where T : Screen
     {
         return GetScreen(typeof(T));
     }
 
     private StackedScreen GetScreen(Type screenType)
     {
+        if (TryGetStackedScreen(screenType, out StackedScreen stacked))
+        {
+            return new StackedScreen(stacked.Screen, stacked.DestroyOnClose);
+        }
+
         if (TryGetSceneScreen(screenType, out IScreen screen))
         {
             return new StackedScreen(screen, false);
@@ -95,6 +109,13 @@ public class ScreenService : IScreenService, IInitializable
         }
 
         return null;
+    }
+
+    private bool TryGetStackedScreen(Type screenType, out StackedScreen screen)
+    {
+        StackedScreen stacked = screenStack.Find(s => s.Screen?.GetType() == screenType);
+        screen = stacked;
+        return screen != null;
     }
 
     private bool TryGetSceneScreen(Type screenType, out IScreen screen)
@@ -136,21 +157,7 @@ public class ScreenService : IScreenService, IInitializable
     public IScreen Open(Type screenType, bool closeCurrent = false)
     {
         StackedScreen stack = GetScreen(screenType);
-        if (CurrentScreen == stack.Screen)
-        {
-            //do nothing, its the same screen with a diferent context
-            //double check - this probably will be missing a notify
-        }
-        else if (closeCurrent && CurrentScreen != null)
-        {
-            Close(CurrentScreen);
-        }
-        else
-        {
-            HideCurrentScreen();
-        }
-
-        queue.QueueSequence(OpenSequence(stack));
+        queue.QueueSequence(OpenSequence(stack, closeCurrent));
         return stack.Screen;
     }
 
@@ -162,22 +169,7 @@ public class ScreenService : IScreenService, IInitializable
             stack.DefineContext(context);
             screenT.SetContext(context);
         }
-
-        if(CurrentScreen == stack.Screen)
-        {
-            //do nothing, its the same screen with a diferent context
-            //double check - this probably will be missing a notify
-        }
-        else if (closeCurrent && CurrentScreen != null)
-        {
-            Close(CurrentScreen);
-        }
-        else
-        {
-            HideCurrentScreen();
-        }
-
-        queue.QueueSequence(OpenSequence(stack));
+        queue.QueueSequence(OpenSequence(stack, closeCurrent));
         return stack.Screen as T;
     }
 
@@ -241,24 +233,47 @@ public class ScreenService : IScreenService, IInitializable
         }
     }
 
-    #endregion
-    #region Sequences
-    private IEnumerator OpenSequence(StackedScreen stacked)
+    private bool CheckIfScreenIsUnused(StackedScreen stacked)
     {
-        var oldScreen = CurrentScreen;
-        AddToStack(stacked);
-        stacked.ScreenObject.SetActive(true);
-        yield return stacked.Screen.Open();
-        signals.Fire(new ScreenChangedSignal(oldScreen, stacked.Screen));
+        return !screenStack.Any(stack => stack.Screen == stacked.Screen && stack != stacked);
     }
 
-    private IEnumerator CloseSequence(StackedScreen stacked)
+    #endregion
+    #region Sequences
+    private IEnumerator OpenSequence(StackedScreen stacked, bool closeCurrent = false, bool notify = true)
+    {
+        var oldScreen = CurrentScreen;
+
+        if (CurrentScreen == stacked.Screen)
+        {
+            //do nothing, its the same screen with a diferent context
+        }
+        else if (closeCurrent && CurrentStack != null)
+        {
+            yield return CloseSequence(CurrentStack, false);
+        }
+        else
+        {
+            HideCurrentScreen();
+        }
+
+        AddToStack(stacked);
+        stacked.ScreenObject.SetActive(true);
+        if (notify)
+        {
+            signals.Fire(new ScreenChangedSignal(oldScreen, stacked.Screen));
+        }
+        yield return stacked.Screen.Open();
+    }
+
+    private IEnumerator CloseSequence(StackedScreen stacked, bool notify = true)
     {
         RemoveFromStack(stacked);
         FocusCurrentScreen(); //to guarantee there is something "behind"
         yield return stacked.Screen.Close();
-        if (stacked.DestroyOnClose)
+        if (stacked.DestroyOnClose && CheckIfScreenIsUnused(stacked))
         {
+            //only destroy if there is no other usage for this screen in the stack
             GameObject.Destroy(stacked.ScreenObject);
         }
         else
@@ -266,7 +281,10 @@ public class ScreenService : IScreenService, IInitializable
             stacked.ScreenObject.SetActive(false);
         }
 
-        signals.Fire(new ScreenChangedSignal(stacked.Screen, CurrentScreen));
+        if (notify)
+        {
+            signals.Fire(new ScreenChangedSignal(stacked.Screen, CurrentScreen));
+        }
     }
 
     #endregion

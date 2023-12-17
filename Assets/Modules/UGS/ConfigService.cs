@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using Unity.Services.RemoteConfig;
+using UnityEngine;
 using Zenject;
 
 public class ConfigService : IConfigService, IUnityService
@@ -24,5 +25,14 @@ public class ConfigService : IConfigService, IUnityService
         }
 
         return default(T);
+    }
+
+    public void GetConfig<T>(string key, T thing) where T : ScriptableObject
+    {
+        if(config.TryGetValue(key, out var token))
+        {
+            Debug.Log(token.ToString());
+            JsonUtility.FromJsonOverwrite(token.ToString(), thing);
+        }
     }
 }

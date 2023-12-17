@@ -12,8 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: '[]'
-  _rsLastCachedKeyList: '[]'
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"cf11ce9a-deb0-467d-a340-42cd30fdedda\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"News\",\r\n      \"type\": \"json\",\r\n     
+    \"schemaId\": null,\r\n      \"value\": {\r\n        \"News\": [\r\n         
+    {\r\n            \"id\": \"1\",\r\n            \"title\": \"Title 1\",\r\n           
+    \"content\": \"Content 1\",\r\n            \"Thumbnail\": {\r\n             
+    \"m_AssetGUID\": \"\",\r\n              \"m_SubObjectName\": \"\",\r\n             
+    \"m_SubObjectType\": \"\",\r\n              \"m_EditorAssetChanged\": false\r\n           
+    }\r\n          },\r\n          {\r\n            \"id\": \"2\",\r\n           
+    \"title\": \"Title 2\",\r\n            \"content\": \"Content 2\",\r\n           
+    \"Thumbnail\": {\r\n              \"m_AssetGUID\": \"\",\r\n              \"m_SubObjectName\":
+    \"\",\r\n              \"m_SubObjectType\": \"\",\r\n              \"m_EditorAssetChanged\":
+    false\r\n            }\r\n          },\r\n          {\r\n            \"id\":
+    \"3\",\r\n            \"title\": \"Title 3\",\r\n            \"content\": \"Content
+    3\",\r\n            \"Thumbnail\": {\r\n              \"m_AssetGUID\": \"\",\r\n             
+    \"m_SubObjectName\": \"\",\r\n              \"m_SubObjectType\": \"\",\r\n             
+    \"m_EditorAssetChanged\": false\r\n            }\r\n          }\r\n        ],\r\n       
+    \"news\": [\r\n          {\r\n            \"instanceID\": -313954\r\n         
+    },\r\n          {\r\n            \"instanceID\": 123726\r\n          },\r\n         
+    {\r\n            \"instanceID\": 129028\r\n          }\r\n        ]\r\n     
+    }\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"cf11ce9a-deb0-467d-a340-42cd30fdedda\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"News\",\r\n      \"type\": \"json\",\r\n     
+    \"schemaId\": null,\r\n      \"value\": {\r\n        \"News\": [\r\n         
+    {\r\n            \"id\": \"1\",\r\n            \"title\": \"Title 1\",\r\n           
+    \"content\": \"Content 1\",\r\n            \"Thumbnail\": {\r\n             
+    \"m_AssetGUID\": \"\",\r\n              \"m_SubObjectName\": \"\",\r\n             
+    \"m_SubObjectType\": \"\",\r\n              \"m_EditorAssetChanged\": false\r\n           
+    }\r\n          },\r\n          {\r\n            \"id\": \"2\",\r\n           
+    \"title\": \"Title 2\",\r\n            \"content\": \"Content 2\",\r\n           
+    \"Thumbnail\": {\r\n              \"m_AssetGUID\": \"\",\r\n              \"m_SubObjectName\":
+    \"\",\r\n              \"m_SubObjectType\": \"\",\r\n              \"m_EditorAssetChanged\":
+    false\r\n            }\r\n          },\r\n          {\r\n            \"id\":
+    \"3\",\r\n            \"title\": \"Title 3\",\r\n            \"content\": \"Content
+    3\",\r\n            \"Thumbnail\": {\r\n              \"m_AssetGUID\": \"\",\r\n             
+    \"m_SubObjectName\": \"\",\r\n              \"m_SubObjectType\": \"\",\r\n             
+    \"m_EditorAssetChanged\": false\r\n            }\r\n          }\r\n        ],\r\n       
+    \"news\": [\r\n          {\r\n            \"instanceID\": -313954\r\n         
+    },\r\n          {\r\n            \"instanceID\": 123726\r\n          },\r\n         
+    {\r\n            \"instanceID\": 129028\r\n          }\r\n        ]\r\n     
+    }\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"b9da1dc8-81d6-498e-819d-11c4f7ef0105\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"446642c4-0eaf-4385-84db-d800e0737271\",\r\n   
     \"isDefault\": true,\r\n    \"createdAt\": \"2023-11-21T21:48:35Z\",\r\n    \"updatedAt\":
