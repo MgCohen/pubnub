@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d96adfff50e6349986b92eadb16ca9, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  key: dialogue_1
+  style: 0
+  closeOnLastLine: 0
+  blockInput: 1
+  fadeout: 1
+  moments:
+    list:
+    - rid: 1035465462129885189
+    - rid: 1035465462129885190
+    - rid: 1035465462129885191
+  references:
+    version: 2
+    RefIds:
+    - rid: 1035465462129885189
+      type: {class: LineMoment, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: a1365f9f65ec047489a2ddf618d59137, type: 2}
+        pose: Standard
+        content: Hello!
+        position: 2
+    - rid: 1035465462129885190
+      type: {class: LineMoment, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: a1365f9f65ec047489a2ddf618d59137, type: 2}
+        pose: Ready
+        content: Let's Go!
+        position: 2
+    - rid: 1035465462129885191
+      type: {class: LineMoment, ns: , asm: Assembly-CSharp}
+      data:
+        character: {fileID: 11400000, guid: 3b529aab0bd276441956a49229cf5d60, type: 2}
+        pose: Standard
+        content: Not so fast
+        position: 1

@@ -91,7 +91,7 @@ PlayerSettings:
   bakeCollisionMeshes: 0
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
-  resizableWindow: 0
+  resizableWindow: 1
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
@@ -908,7 +908,13 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: b9da1dc8-81d6-498e-819d-11c4f7ef0105
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
+  qualitySettingsNames:
+  - Very Low
+  - Low
+  - Medium
+  - High
+  - Very High
+  - Ultra
   projectName: pubnub
   organizationId: matheuscohen
   cloudEnabled: 0

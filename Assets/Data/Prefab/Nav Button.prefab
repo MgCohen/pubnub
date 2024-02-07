@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3139876046466924192}
   - component: {fileID: 4475228913012273598}
   - component: {fileID: 6810952118033029497}
+  - component: {fileID: 9037866327011019923}
   m_Layer: 5
   m_Name: Nav Button
   m_TagString: Untagged
@@ -145,7 +146,6 @@ MonoBehaviour:
     _typeNameAndAssembly: 
     _suppressLogs: 0
   icon: {fileID: 3139876046466924192}
-  navBar: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -163,3 +163,16 @@ MonoBehaviour:
         on: 0
         icon: {fileID: -1284419024, guid: f81fbb5364965c04c91be0869aeaa1cf, type: 3}
         size: 1
+--- !u!114 &9037866327011019923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907193899429365598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9f8fd6ba0b1124185a870236cf1d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: []

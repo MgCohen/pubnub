@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edad44d768923784b87e6848479f5657, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  key: 
+  steps:
+    list:
+    - rid: 1035465462129885192
+    - rid: 1035465462129885194
+    - rid: 1035465498010320899
+    - rid: 1035465498010320901
+    - rid: 1035465462129885197
+  references:
+    version: 2
+    RefIds:
+    - rid: 1035465462129885192
+      type: {class: DialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        dialogue: {fileID: 11400000, guid: 3501ac267b8b54845b3a97d63159cfc9, type: 2}
+    - rid: 1035465462129885194
+      type: {class: ClickStep, ns: , asm: Assembly-CSharp}
+      data:
+        tag: {fileID: -3832665789387546032, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
+        highlightTarget: 1
+    - rid: 1035465462129885197
+      type: {class: DialogueStep, ns: , asm: Assembly-CSharp}
+      data:
+        dialogue: {fileID: 11400000, guid: 11f742859923ca048a4649ec60e56572, type: 2}
+    - rid: 1035465498010320899
+      type: {class: CloseDialogueStep, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 1035465498010320901
+      type: {class: WaitScreenStep, ns: , asm: Assembly-CSharp}
+      data:
+        screenType:
+          GuidAssignmentFailed: 0
+          GUID: 154b815b1c6deb24cadb8af7686d6140
+          _typeNameAndAssembly: NewsScreen, Assembly-CSharp
+          _suppressLogs: 0
+        operation: 0

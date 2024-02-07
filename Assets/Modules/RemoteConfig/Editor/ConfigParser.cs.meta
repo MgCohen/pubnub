@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1e2cb2f755553d14f83f8512b212878e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - store: {fileID: 11400000, guid: de3241540d5593342ac341ae08758663, type: 2}
+  - news: {fileID: 11400000, guid: 88b74ef3fb1d3aa468dcc7a607cb4aea, type: 2}
+  - leaderboard: {fileID: 11400000, guid: 86400983fb75af341b22c9f1abe1fca1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
+using Newtonsoft.Json;
 
 public class ScreenService : IScreenService, IInitializable
 {
@@ -37,9 +38,9 @@ public class ScreenService : IScreenService, IInitializable
         FillScreenStack();
     }
 
-    public void FillScreenStack()
+    private void FillScreenStack()
     {
-        Debug.Log("Reseting screen stack");
+        Debug.Log("Reseting screen stack"); 
         screenStack.Clear();
         sceneScreens.Clear();
         CurrentStack = null;
@@ -138,7 +139,6 @@ public class ScreenService : IScreenService, IInitializable
                 screenHolder = new GameObject("Screen Holder").transform;
             }
             screen = factory.Create(screenAsset, screenHolder);
-            screen.SetLayer(CurrentScreen.Layer);
             (screen as MonoBehaviour).gameObject.SetActive(false);
             return true;
         }
@@ -164,10 +164,9 @@ public class ScreenService : IScreenService, IInitializable
     public T Open<T>(ScreenContext<T> context, bool closeCurrent = false) where T : Screen
     {
         StackedScreen stack = GetScreen<T>();
-        if (context != null && stack?.Screen is IScreenT screenT)
+        if (context != null)
         {
             stack.DefineContext(context);
-            screenT.SetContext(context);
         }
         queue.QueueSequence(OpenSequence(stack, closeCurrent));
         return stack.Screen as T;
@@ -206,6 +205,7 @@ public class ScreenService : IScreenService, IInitializable
             GameObject.Destroy(screenStack[i].ScreenObject);
             screenStack.Remove(screenStack[i]);
         }
+        screenStack.Clear();
         Close(CurrentScreen);
     }
 
@@ -248,9 +248,13 @@ public class ScreenService : IScreenService, IInitializable
         {
             //do nothing, its the same screen with a diferent context
         }
+        else if(CurrentScreen?.ScreenType is ScreenType.Overlay)
+        {
+            //do nothing, overlays should manage itself
+        }
         else if (closeCurrent && CurrentStack != null)
         {
-            yield return CloseSequence(CurrentStack, false);
+            yield return CloseOthersSequence(stacked, false);
         }
         else
         {
@@ -259,6 +263,8 @@ public class ScreenService : IScreenService, IInitializable
 
         AddToStack(stacked);
         stacked.ScreenObject.SetActive(true);
+        stacked.Screen.SetLayer(screenStack.Count * 2); //multiply by 2 so there is always one empty layer for extras and overlays
+
         if (notify)
         {
             signals.Fire(new ScreenChangedSignal(oldScreen, stacked.Screen));
@@ -271,6 +277,7 @@ public class ScreenService : IScreenService, IInitializable
         RemoveFromStack(stacked);
         FocusCurrentScreen(); //to guarantee there is something "behind"
         yield return stacked.Screen.Close();
+
         if (stacked.DestroyOnClose && CheckIfScreenIsUnused(stacked))
         {
             //only destroy if there is no other usage for this screen in the stack
@@ -287,6 +294,16 @@ public class ScreenService : IScreenService, IInitializable
         }
     }
 
+    private IEnumerator CloseOthersSequence(StackedScreen stacked, bool notify = true)
+    {
+        var screens = screenStack.Where(st => st.Screen != CurrentScreen && st.Screen != stacked.Screen).Distinct().Select(st => st.ScreenObject);
+        foreach(var screen in screens)
+        {
+            GameObject.Destroy(screen);
+        }
+        screenStack.Clear();
+        yield return CloseSequence(CurrentStack, notify);
+    }
     #endregion
 }
 

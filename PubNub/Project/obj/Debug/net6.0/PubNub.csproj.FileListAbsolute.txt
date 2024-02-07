@@ -1,0 +1,15 @@
+C:\Users\mathe\pubnub\PubNub\Project\bin\Debug\net6.0\PubNub.deps.json
+C:\Users\mathe\pubnub\PubNub\Project\bin\Debug\net6.0\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\bin\Debug\net6.0\PubNub.pdb
+C:\Users\mathe\pubnub\PubNub\Project\bin\Debug\net6.0\PubNubDTO.dll
+C:\Users\mathe\pubnub\PubNub\Project\bin\Debug\net6.0\PubNubDTO.pdb
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.csproj.AssemblyReference.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.AssemblyInfoInputs.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.AssemblyInfo.cs
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.csproj.CoreCompileInputs.cache
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.csproj.CopyComplete
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\refint\PubNub.dll
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\PubNub.pdb
+C:\Users\mathe\pubnub\PubNub\Project\obj\Debug\net6.0\ref\PubNub.dll

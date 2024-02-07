@@ -328,6 +328,14 @@ PrefabInstance:
       propertyPath: managedReferences[6576779778106851329].icon
       value: 
       objectReference: {fileID: -121020558, guid: 5177bfe4bac09ca42a0fb941cebdf624, type: 3}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 2314708026582935341, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -457,6 +465,14 @@ PrefabInstance:
       propertyPath: managedReferences[6576779778106851329].icon
       value: 
       objectReference: {fileID: -105771967, guid: 6537a1f3d8ad8e9428830397e7a0c719, type: 3}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 3607902802120962816, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -582,6 +598,14 @@ PrefabInstance:
       propertyPath: screen._typeNameAndAssembly
       value: NewsScreen, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: -3832665789387546032, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -715,6 +739,14 @@ PrefabInstance:
       propertyPath: managedReferences[6576779778106851329].icon
       value: 
       objectReference: {fileID: 2083333505, guid: 05b186cb71d43ea49a7ba409f30c24bc, type: 3}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037866327011019923, guid: 529abc98a51ee674abc006c81b53690d, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: -7964872094628493455, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

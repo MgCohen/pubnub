@@ -1,0 +1,10 @@
+{
+  "Configs": [
+    {
+      "Name": "refresh-assignments",
+      "EventType": "com.unity.services.scheduler.daily.v1",
+      "ActionUrn": "urn:ugs:cloud-code:PubNub/DailyRefresh",
+      "ActionType": "cloud-code"
+    }
+  ]
+}

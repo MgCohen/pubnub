@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using Zenject;
 
 public class InputInstaller : MonoInstaller
@@ -7,5 +9,7 @@ public class InputInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.BindInterfacesAndSelfTo<InputService>().FromComponentInNewPrefab(input).UnderTransform(transform).AsSingle().NonLazy();
+        Container.DeclareSignal<ScreenClickedSignal>().OptionalSubscriber();
     }
 }
+

@@ -14,11 +14,13 @@ public abstract class Screen : MonoBehaviour, IScreen
     [Inject] protected IScreenService screens;
 
     public List<ScreenComponent> Components => components;
-    [SerializeField] private List<ScreenComponent> components = new List<ScreenComponent>();
-
+    [SerializeField, HideInInspector] private List<ScreenComponent> components = new List<ScreenComponent>();
+    
     [SerializeField, HideInInspector] protected FilteredRaycaster raycaster;
     [SerializeField, HideInInspector] protected Canvas canvas;
     [SerializeField, HideInInspector] protected RectTransform content;
+
+    private bool initialized = false;
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -45,7 +47,6 @@ public abstract class Screen : MonoBehaviour, IScreen
 
     public int Layer => canvas.sortingOrder;
 
-    [Inject]
     protected virtual void Setup()
     {
         components = GetComponents<ScreenComponent>().ToList();
@@ -57,6 +58,12 @@ public abstract class Screen : MonoBehaviour, IScreen
 
     public IEnumerator Open()
     {
+        if (!initialized)
+        {
+            Setup();
+            initialized = true;
+        }
+
         foreach(var component in components)
         {
             component.OnOpen(true);
@@ -102,7 +109,7 @@ public abstract class Screen : MonoBehaviour, IScreen
             component.OnClose(false);
         }
         OnHide();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     protected virtual void OnHide() { }
@@ -139,6 +146,7 @@ public abstract class InjectedScreen<T>: Screen where T: IScreenContext
     protected override void Setup()
     {
         base.Setup();
+        Context.ContextUpdated -= OnContextUpdated;
         Context.ContextUpdated += OnContextUpdated;
     }
 
@@ -169,6 +177,7 @@ public enum ScreenType
     Window = 0,
     Popup = 1,
     Tab = 2,
+    Overlay = 3,
 }
 
 public abstract class ScreenComponent: MonoBehaviour

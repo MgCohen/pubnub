@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aeed4b9d1b9054e84b7538f64a4ccb, type: 3}
+  m_Name: News Collection
+  m_EditorClassIdentifier: 
+  News:
+  - id: 1
+    title: Title 1
+    content: Content 1
+    Thumbnail:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    View:
+      m_AssetGUID: 4bf898382fd07de41a7f27abed4c2680
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: 2
+    title: Title 2
+    content: Content 2
+    Thumbnail:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    View:
+      m_AssetGUID: 4bf898382fd07de41a7f27abed4c2680
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: 3
+    title: Title 3
+    content: Content 3
+    Thumbnail:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    View:
+      m_AssetGUID: 4bf898382fd07de41a7f27abed4c2680
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  wrappers:
+  - {fileID: 11400000, guid: e4017c0ead7771845a71c69560d4a5c1, type: 2}
+  - {fileID: 11400000, guid: 63fb94b8292266c458ddde4ef4253293, type: 2}
+  - {fileID: 11400000, guid: e1388d1fcc79b2e49bd3c2aa575e18cf, type: 2}

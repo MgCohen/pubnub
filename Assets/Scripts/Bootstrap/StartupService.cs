@@ -1,7 +1,10 @@
+using NaughtyAttributes;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -12,14 +15,17 @@ public class StartupService : MonoBehaviour
     [Inject] private IScreenService screens;
     [Inject] private UGS ugs;
     [Inject] private IConfigService configs;
-    private StartupContext context = new StartupContext();
+    [Inject] private GameModulesService gameModules;
 
+    private StartupContext context = new StartupContext();
     private async void Start()
     {
         screens.Open<StartupScreen>(context);
         await ugs.Initialize(); 
         context.SetProgress(10);
         await assets.InitializeContent();
+        context.SetProgress(20);
+        await gameModules.Initialize();
         context.SetProgress(30);
         await scenes.LoadScene("Main");
     }

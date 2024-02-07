@@ -7,3 +7,4 @@ C:\Users\mathe\pubnub\PubNub\PubNubDTO\obj\Release\netstandard2.1\linux-x64\PubN
 C:\Users\mathe\pubnub\PubNub\PubNubDTO\obj\Release\netstandard2.1\linux-x64\PubNubDTO.csproj.CoreCompileInputs.cache
 C:\Users\mathe\pubnub\PubNub\PubNubDTO\obj\Release\netstandard2.1\linux-x64\PubNubDTO.dll
 C:\Users\mathe\pubnub\PubNub\PubNubDTO\obj\Release\netstandard2.1\linux-x64\PubNubDTO.pdb
+C:\Users\mathe\pubnub\PubNub\PubNubDTO\obj\Release\netstandard2.1\linux-x64\PubNubDTO.csproj.AssemblyReference.cache

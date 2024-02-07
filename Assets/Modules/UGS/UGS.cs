@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
@@ -16,11 +17,7 @@ public class UGS
         await UnityServices.InitializeAsync(options);
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        List<Task> initializationSequence = new List<Task>();
-        foreach (var service in services)
-        {
-            initializationSequence.Add(service.Initialize());
-        }
+        List<Task> initializationSequence = services.Select(s => s.Initialize()).ToList();
         await Task.WhenAll(initializationSequence);
     }
 }

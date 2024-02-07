@@ -28,5 +28,9 @@ public class StackedScreen
     public void DefineContext(IScreenContext context)
     {
         Context = context;
+        if(Screen is IScreenT screenT)
+        {
+            screenT.SetContext(context);
+        }
     }
 }

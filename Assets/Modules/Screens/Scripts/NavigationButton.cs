@@ -18,9 +18,6 @@ public class NavigationButton : StatefulBehaviour
     [SerializeField, Inherits(typeof(Screen))] private TypeReference screen;
     [SerializeField] private Image icon;
 
-    [Header("References")]
-    [SerializeField] private NavigationBar navBar;
-
     public bool Selected { get; private set; }
     public TypeReference ScreenType => screen;
 
@@ -33,7 +30,7 @@ public class NavigationButton : StatefulBehaviour
     private void OnClick()
     {
         Toggle(true);
-        screens.Open(screen);
+        screens.Open(screen, true);
     }
 
     public void Toggle(bool state)

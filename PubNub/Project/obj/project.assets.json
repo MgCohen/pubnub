@@ -192,6 +192,9 @@
       "PubNubDTO/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
         "compile": {
           "bin/placeholder/PubNubDTO.dll": {}
         },
@@ -440,6 +443,9 @@
       "PubNubDTO/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
         "compile": {
           "bin/placeholder/PubNubDTO.dll": {}
         },

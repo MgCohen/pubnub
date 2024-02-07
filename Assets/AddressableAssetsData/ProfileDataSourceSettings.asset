@@ -103,6 +103,24 @@ MonoBehaviour:
       m_Value: CCDBuildData/1969bea4-b86f-4290-900a-87e1da380d87/e437ec37-11ad-450d-af08-646c98d2ca7a/latest
     - m_Suffix: LoadPath
       m_Value: https://b9da1dc8-81d6-498e-819d-11c4f7ef0105.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/e437ec37-11ad-450d-af08-646c98d2ca7a/release_by_badge/latest/entry_by_path/content/?path=
+  - m_GroupTypePrefix: CCD.b9da1dc8-81d6-498e-819d-11c4f7ef0105.1969bea4-b86f-4290-900a-87e1da380d87.e437ec37-11ad-450d-af08-646c98d2ca7a.1-0-0
+    m_Variables:
+    - m_Suffix: CcdBucketName
+      m_Value: PC
+    - m_Suffix: CcdBucketId
+      m_Value: e437ec37-11ad-450d-af08-646c98d2ca7a
+    - m_Suffix: CcdBadgeName
+      m_Value: 1-0-0
+    - m_Suffix: PromoteOnly
+      m_Value: False
+    - m_Suffix: Environmentname
+      m_Value: dev
+    - m_Suffix: Environmentid
+      m_Value: 1969bea4-b86f-4290-900a-87e1da380d87
+    - m_Suffix: BuildPath
+      m_Value: CCDBuildData/1969bea4-b86f-4290-900a-87e1da380d87/e437ec37-11ad-450d-af08-646c98d2ca7a/1-0-0
+    - m_Suffix: LoadPath
+      m_Value: https://b9da1dc8-81d6-498e-819d-11c4f7ef0105.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/e437ec37-11ad-450d-af08-646c98d2ca7a/release_by_badge/1-0-0/entry_by_path/content/?path=
   environments:
   - id: 446642c4-0eaf-4385-84db-d800e0737271
     projectId: b9da1dc8-81d6-498e-819d-11c4f7ef0105

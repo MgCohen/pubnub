@@ -33,3 +33,13 @@ MonoBehaviour:
       GUID: 154b815b1c6deb24cadb8af7686d6140
       _typeNameAndAssembly: NewsScreen, Assembly-CSharp
       _suppressLogs: 0
+  - asset:
+      m_AssetGUID: 13c09b5667220eb43b2f9f1079e92a3b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    type:
+      GuidAssignmentFailed: 0
+      GUID: bdf31269226e9764386a743cde16b236
+      _typeNameAndAssembly: DialoguePopup, Assembly-CSharp
+      _suppressLogs: 0

@@ -166,28 +166,8 @@ namespace Scaffold.Stateful
         public void AddState(IState state)
         {
             stateful.AddState(state);
-            //StatesProp.InsertArrayElementAtIndex(StatesProp.arraySize);
-            //SerializedProperty stateProp = StatesProp.GetArrayElementAtIndex(StatesProp.arraySize - 1);
-            //stateProp.boxedValue = state;
-            //serializedObject.ApplyModifiedProperties();
-            //CreateStateDrawer(StatesProp.arraySize - 1, stateProp);
             stateful.EvaluateCurrentState();
         }
-
-        //public void RemoveState(IStateDrawer drawer)
-        //{
-        //    IState state = drawer.GetState();
-        //    int index = stateDrawers.IndexOf(drawer);
-
-        //    if ((CurrentStateProp.boxedValue as IState).Equals(state))
-        //    {
-        //        CurrentStateProp.managedReferenceValue = null;
-        //        serializedObject.ApplyModifiedProperties();
-        //        stateful.EvaluateCurrentState();
-        //    }
-        //    StatesProp.DeleteArrayElementAtIndex(index);
-        //    RefreshStateInfo();
-        //}
         #endregion
     }
 }

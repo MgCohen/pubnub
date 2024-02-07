@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "V74EuzWJiUOhqhficT4EAHFFgezl2Dbr/hFSPeS2VkoYlQXnqsBTleeJbw9VfSCjbB5PE9ZgcdFecWB7U5rHGg==",
+  "dgSpecHash": "zL9U/2wSNVYC01YD5wQx031seKxUl1fSmZYxjK6sCuTfHv6HrLI3cOXDmWQgAIrwlg8cP9RYGPINd++jpF2ltw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mathe\\pubnub\\PubNub\\PubNubDTO\\PubNubDTO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mathe\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
