@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edad44d768923784b87e6848479f5657, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
-  key: 
+  key: sdsddsd
   steps:
     list:
     - rid: 1035465462129885192
@@ -30,8 +30,9 @@ MonoBehaviour:
     - rid: 1035465462129885194
       type: {class: ClickStep, ns: , asm: Assembly-CSharp}
       data:
-        tag: {fileID: -3832665789387546032, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
+        tag: {fileID: 4087012092737810030, guid: 4477b2b3f1aac994bb91c64fa244da8d, type: 2}
         highlightTarget: 1
+        rotation: 27.37
     - rid: 1035465462129885197
       type: {class: DialogueStep, ns: , asm: Assembly-CSharp}
       data:

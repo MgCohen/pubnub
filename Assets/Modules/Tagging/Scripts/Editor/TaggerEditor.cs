@@ -23,8 +23,11 @@ public class TaggerEditor: Editor
         {
             var childProp = tagsProp.GetArrayElementAtIndex(i);
             GameTag tag = childProp.boxedValue as GameTag;
+
             if(tag == null)
             {
+                tagsProp.DeleteArrayElementAtIndex(i);
+                serializedObject.ApplyModifiedProperties();
                 continue;
             }
 

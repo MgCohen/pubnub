@@ -444,10 +444,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Footer Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2231762344588640865, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231762344588640865, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 414523666396625843, guid: 4477b2b3f1aac994bb91c64fa244da8d, type: 2}
+    - target: {fileID: 2831354731684765802, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831354731684765802, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 4087012092737810030, guid: 4477b2b3f1aac994bb91c64fa244da8d, type: 2}
     - target: {fileID: 3522875027369200364, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4368901868185804782, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368901868185804782, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: -7608735211576641124, guid: 4477b2b3f1aac994bb91c64fa244da8d, type: 2}
     - target: {fileID: 4652268773357313229, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -472,6 +496,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6847029976536142210, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847029976536142210, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
+      propertyPath: tags.Array.data[0]
+      value: 
+      objectReference: {fileID: 6316670983084502154, guid: 4477b2b3f1aac994bb91c64fa244da8d, type: 2}
     - target: {fileID: 7118371120890708290, guid: 3cf8388014a7521479bf4b7a565ed391, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -783,8 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9f8fd6ba0b1124185a870236cf1d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags:
-  - {fileID: -1678936308594394608, guid: f7f3a18575a285b44a1b663f93f5cfa1, type: 2}
+  tags: []
 --- !u!1001 &2295884063404069009
 PrefabInstance:
   m_ObjectHideFlags: 0
